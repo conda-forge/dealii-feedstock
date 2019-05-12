@@ -40,7 +40,12 @@ test:
     - {{ compiler('fortran') }}
     - cmake
     - make
+    - zlib
     - tbb-devel
+    - muparser
+    - boost-cpp
+    - libblas
+    - liblapack
 
 about:
   home: https://dealii.org/
