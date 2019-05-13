@@ -24,15 +24,11 @@ requirements:
     - tbb-devel
     - muparser
     - boost-cpp
-    - libblas
-    - liblapack
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
     - boost-cpp
-    - libblas
-    - liblapack
 
 test:
   requires:
