@@ -66,5 +66,5 @@ mkdir build && cd build
 cmake -DDEAL_II_DIR=${PREFIX} \
   .. || (show_cmake_logs && exit 1)
 
-make
+make VERBOSE=1
 make run
