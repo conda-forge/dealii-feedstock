@@ -10,7 +10,7 @@ source:
   sha256: df2f0d666f2224be07e3741c0e8e02132fd67ea4579cd16a2429f7416146ee64
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -24,15 +24,11 @@ requirements:
     - tbb-devel
     - muparser
     - boost-cpp
-    - libblas
-    - liblapack
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
     - boost-cpp
-    - libblas
-    - liblapack
 
 test:
   requires:
