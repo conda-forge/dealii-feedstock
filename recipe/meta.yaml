@@ -1,5 +1,5 @@
 {% set name = "dealii" %}
-{% set version = "9.0.1" %}
+{% set version = "9.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
-  sha256: df2f0d666f2224be07e3741c0e8e02132fd67ea4579cd16a2429f7416146ee64
+  sha256: 5b070112403f8afbb72345c1bb24d2a38d11ce58891217e353aab97957a04600
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
