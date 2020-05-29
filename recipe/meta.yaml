@@ -35,6 +35,8 @@ requirements:
     - boost
 
 test:
+  imports:
+    - PyDealII
   requires:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
