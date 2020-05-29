@@ -42,6 +42,7 @@ test:
     - make
     - tbb-devel
     - python
+    - boost
 
 about:
   home: https://dealii.org/
