@@ -29,7 +29,6 @@ requirements:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
-    - boost-cpp
     - python
     - boost
 
