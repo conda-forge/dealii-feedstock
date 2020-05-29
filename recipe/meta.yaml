@@ -23,7 +23,6 @@ requirements:
     - zlib
     - tbb-devel
     - muparser
-    - boost-cpp
     - python
     - boost
   run:
