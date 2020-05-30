@@ -43,8 +43,6 @@ test:
     - cmake
     - make
     - tbb-devel
-    - python
-    - boost
 
 about:
   home: https://dealii.org/
@@ -57,7 +55,7 @@ about:
     partial differential equations using adaptive finite elements. It uses
     state-of-the-art programming techniques to offer you a modern interface to
     the complex data structures and algorithms required.
-  doc_url: https://dealii.org/developer/doxygen/deal.II/Tutorial.html
+  doc_url: https://dealii.org/current/doxygen/deal.II/Tutorial.html
   dev_url: https://github.com/dealii/dealii
 
 extra:
