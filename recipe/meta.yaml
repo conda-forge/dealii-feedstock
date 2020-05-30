@@ -1,5 +1,5 @@
 {% set name = "dealii" %}
-{% set version = "9.1.1" %}
+{% set version = "9.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,12 @@ package:
 
 source:
   url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
-  sha256: fc5b483f7fe58dfeb52d05054011280f115498e337af3e085bf272fd1fd81276
+  sha256: d05a82fb40f1f1e24407451814b5a6004e39366a44c81208b1ae9d65f3efa43a
+  patches:
+    - osx_fix.diff
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -23,14 +25,18 @@ requirements:
     - zlib
     - tbb-devel
     - muparser
-    - boost-cpp
+    - python
+    - boost
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
-    - boost-cpp
+    - python
+    - boost
 
 test:
+  imports:
+    - PyDealII
   requires:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
@@ -49,7 +55,7 @@ about:
     partial differential equations using adaptive finite elements. It uses
     state-of-the-art programming techniques to offer you a modern interface to
     the complex data structures and algorithms required.
-  doc_url: https://dealii.org/developer/doxygen/deal.II/Tutorial.html
+  doc_url: https://dealii.org/current/doxygen/deal.II/Tutorial.html
   dev_url: https://github.com/dealii/dealii
 
 extra:
