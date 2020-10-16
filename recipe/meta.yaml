@@ -12,7 +12,7 @@ source:
     - osx_fix.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
