@@ -8,6 +8,8 @@ package:
 source:
   url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
   sha256: a62f4676ab2dc029892251d141427fb75cbb83cddd606019f615d0dde9c61ab8
+  patches:
+    - shared_mutex.patch
 
 build:
   number: 0
@@ -46,7 +48,7 @@ about:
   home: https://dealii.org/
   license: LGPL-2.1-or-later
   license_file: LICENSE.md
-  summary: 'The deal.ii finite element package'
+  summary: The deal.ii finite element package
 
   description: |
     deal.II is a C++ program library targeted at the computational solution of
