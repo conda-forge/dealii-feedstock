@@ -1,13 +1,23 @@
 diff --git a/include/deal.II/base/thread_local_storage.h b/include/deal.II/base/thread_local_storage.h
-index 10a9388..510df29 100644
+index 10a9388..ec8bc9b 100644
 --- a/include/deal.II/base/thread_local_storage.h
 +++ b/include/deal.II/base/thread_local_storage.h
-@@ -250,6 +250,9 @@ namespace Threads
+@@ -28,6 +28,10 @@
+ #  include <thread>
+ #  include <vector>
+ 
++#  ifdef __APPLE__
++#    include <boost/thread/shared_mutex.hpp>
++#  endif
++
+ DEAL_II_NAMESPACE_OPEN
+ 
+ /*!@addtogroup threads */
+@@ -250,6 +254,8 @@ namespace Threads
       */
  #  ifdef DEAL_II_HAVE_CXX17
      mutable std::shared_mutex insertion_mutex;
 +#  elif __APPLE__
-+    #include <boost/thread/shared_mutex.hpp>
 +    mutable boost::shared_mutex insertion_mutex;
  #  else
      mutable std::shared_timed_mutex insertion_mutex;
