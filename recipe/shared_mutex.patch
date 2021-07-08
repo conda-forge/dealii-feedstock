@@ -1,0 +1,14 @@
+diff --git a/include/deal.II/base/thread_local_storage.h b/include/deal.II/base/thread_local_storage.h
+index 10a9388..510df29 100644
+--- a/include/deal.II/base/thread_local_storage.h
++++ b/include/deal.II/base/thread_local_storage.h
+@@ -250,6 +250,9 @@ namespace Threads
+      */
+ #  ifdef DEAL_II_HAVE_CXX17
+     mutable std::shared_mutex insertion_mutex;
++#  elif __APPLE__
++    #include <boost/thread/shared_mutex.hpp>
++    mutable boost::shared_mutex insertion_mutex;
+ #  else
+     mutable std::shared_timed_mutex insertion_mutex;
+ #  endif
