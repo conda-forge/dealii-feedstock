@@ -8,8 +8,6 @@ package:
 source:
   url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
   sha256: a62f4676ab2dc029892251d141427fb75cbb83cddd606019f615d0dde9c61ab8
-  patches:
-    - shared_mutex.patch
 
 build:
   number: 0

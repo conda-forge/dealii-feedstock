@@ -12,6 +12,9 @@ function show_cmake_logs() {
 CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-std=c++[0-9][0-9]//g")
 CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-stdlib=libc++//g")
 
+# https://github.com/dealii/dealii/issues/12549
+CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+
 mkdir build
 cd build
 
