@@ -21,6 +21,8 @@ cd build
 cmake ${CMAKE_ARGS} \
       -DPython_ROOT_DIR="${PREFIX}" \
       -DPython_Executable="${PREFIX}/bin/python" \
+      -DPython3_ROOT_DIR="${PREFIX}" \
+      -DPython3_Executable="${PREFIX}/bin/python" \
       -DCMAKE_BUILD_TYPE=Release \
       -DDEAL_II_COMPONENT_EXAMPLES=OFF \
       -DDEAL_II_ALLOW_BUNDLED=OFF \
