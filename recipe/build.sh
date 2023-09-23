@@ -19,6 +19,7 @@ mkdir build
 cd build
 
 cmake ${CMAKE_ARGS} \
+      -DPython_ROOT_DIR="${PREFIX}" \
       -DCMAKE_BUILD_TYPE=Release \
       -DDEAL_II_COMPONENT_EXAMPLES=OFF \
       -DDEAL_II_ALLOW_BUNDLED=OFF \
