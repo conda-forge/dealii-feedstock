@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
-  sha256: 5341d76bfd75d3402fc6907a875513efb5fe8a8b99af688d94443c492d5713e8
+  url: https://github.com/dealii/dealii/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: ee7a6f98c1d8515fbd68b5fa7df46cb033efcabc87848a8a322d48f4d1e46676
 
 build:
   number: 1
