@@ -30,7 +30,6 @@ requirements:
     - tbb
     - {{ pin_compatible("muparser") }}
     - python
-    - libboost-python-devel
 
 test:
   imports:
