@@ -17,6 +17,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
   host:
@@ -24,13 +25,13 @@ requirements:
     - tbb-devel
     - muparser
     - python
-    - boost
+    - libboost-python-devel
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
     - python
-    - boost
+    - libboost-python-devel
 
 test:
   imports:
