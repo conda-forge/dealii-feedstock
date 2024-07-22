@@ -1,13 +1,13 @@
 {% set name = "dealii" %}
-{% set version = "9.3.2" %}
+{% set version = "9.5.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://dealii.kyomu.43-1.org/downloads/dealii-{{ version }}.tar.gz
-  sha256: 5341d76bfd75d3402fc6907a875513efb5fe8a8b99af688d94443c492d5713e8
+  url: https://www.dealii.org/downloads/dealii-{{ version }}.tar.gz
+  sha256: 7930e5218a9807d60cc05c300a3b70f36f4af22c3551a2cd1141fbab013bbaf1
 
 build:
   number: 0
@@ -15,8 +15,10 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
   host:
@@ -24,18 +26,19 @@ requirements:
     - tbb-devel
     - muparser
     - python
-    - boost
+    - libboost-python-devel
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
     - python
-    - boost
+    - libboost-python-devel
 
 test:
   imports:
     - PyDealII
   requires:
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - cmake
