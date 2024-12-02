@@ -18,14 +18,18 @@ CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 mkdir build
 cd build
 
-cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
-      -DCMAKE_PREFIX_PATH="${PREFIX}" \
+cmake ${CMAKE_ARGS} \
+      -DPython_ROOT_DIR="${PREFIX}" \
+      -DPython_Executable="${PREFIX}/bin/python" \
+      -DPython3_ROOT_DIR="${PREFIX}" \
+      -DPython3_Executable="${PREFIX}/bin/python" \
       -DCMAKE_BUILD_TYPE=Release \
       -DDEAL_II_COMPONENT_EXAMPLES=OFF \
       -DDEAL_II_ALLOW_BUNDLED=OFF \
       -DEAL_II_WITH_LAPACK=OFF \
       -DDEAL_II_COMPONENT_PYTHON_BINDINGS=ON \
       -DBOOST_DIR="${PREFIX}" \
+      -DBOOST_ROOT="${PREFIX}" \
       -DTBB_DIR="${PREFIX}" \
       -DMUPARSER_DIR="${PREFIX}" \
       .. || (show_cmake_logs && exit 1)
