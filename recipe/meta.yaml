@@ -27,14 +27,14 @@ requirements:
     - liblapack
     - tbb-devel
     - muparser
-    - python
+    - python {{ python }}
     - libboost-devel
     - libboost-python-devel
   run:
     - zlib
     - tbb
     - {{ pin_compatible("muparser") }}
-    - python
+    - python {{ python }}
 
 test:
   imports:
