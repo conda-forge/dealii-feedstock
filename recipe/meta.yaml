@@ -18,10 +18,15 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - {{ stdlib("c") }}
+    - {{ mpi }}  # [unix]
     - cmake
     - make
+    - kokkos
   host:
     - zlib
+    - trilinos
+    - libblas
+    - liblapack
     - tbb-devel
     - muparser
     - python
