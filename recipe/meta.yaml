@@ -23,7 +23,6 @@ requirements:
     - kokkos
   host:
     - zlib
-    - trilinos
     - libblas
     - liblapack
     - tbb-devel
