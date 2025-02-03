@@ -21,6 +21,7 @@ requirements:
     - cmake
     - make
     - kokkos
+    - python {{ python }}
   host:
     - zlib
     - libblas
