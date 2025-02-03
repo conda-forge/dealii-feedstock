@@ -18,7 +18,6 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - {{ stdlib("c") }}
-    - {{ mpi }}  # [unix]
     - cmake
     - make
     - kokkos
