@@ -35,7 +35,7 @@ cat <<'EOF'>CMakeLists.txt
 SET(TARGET "test")
 SET(TARGET_SRC test.cc)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.15.0)
 FIND_PACKAGE(deal.II 9.0.0 QUIET
   HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR}
   )
@@ -64,7 +64,7 @@ function show_cmake_logs() {
 export CXX=g++
 export CC=gcc
 mkdir build && cd build
-cmake -DDEAL_II_DIR=${PREFIX} \
+cmake -DDEAL_II_DIR=${PREFIX} -DCMAKE_PREFIX_PATH=${PREFIX}\
   .. || (show_cmake_logs && exit 1)
 
 make VERBOSE=1
