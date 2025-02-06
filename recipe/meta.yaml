@@ -41,9 +41,10 @@ test:
   imports:
     - PyDealII
   requires:
-    - gcc
-    - gxx
-    - gfortran
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
     - tbb-devel
