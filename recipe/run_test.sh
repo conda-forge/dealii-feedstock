@@ -61,7 +61,8 @@ function show_cmake_logs() {
   echo "Content of CMakeFiles/CMakeError.log:"
   cat CMakeFiles/CMakeError.log
 }
-
+export CXX=g++
+export CC=gcc
 mkdir build && cd build
 cmake -DDEAL_II_DIR=${PREFIX} \
   .. || (show_cmake_logs && exit 1)
