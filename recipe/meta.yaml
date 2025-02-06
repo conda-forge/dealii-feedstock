@@ -31,6 +31,13 @@ requirements:
     - python {{ python }}
     - libboost-devel
     - libboost-python-devel
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
+    - cmake
+    - make
+    - tbb-devel
   run:
     - zlib
     - tbb
@@ -40,13 +47,6 @@ requirements:
 test:
   imports:
     - PyDealII
-  requires:
-    - gcc
-    - gxx
-    - gfortran
-    - cmake
-    - make
-    - tbb-devel
 
 about:
   home: https://dealii.org/
