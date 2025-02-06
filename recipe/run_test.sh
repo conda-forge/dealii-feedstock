@@ -61,10 +61,21 @@ function show_cmake_logs() {
   echo "Content of CMakeFiles/CMakeError.log:"
   cat CMakeFiles/CMakeError.log
 }
-export CXX=g++
-export CC=gcc
+# Workaround https://github.com/dealii/dealii/issues/7937
+CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-std=c++[0-9][0-9]//g")
+CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-stdlib=libc++//g")
+
+# https://github.com/dealii/dealii/issues/12549
+CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+
 mkdir build && cd build
-cmake -DDEAL_II_DIR=${PREFIX} -DCMAKE_PREFIX_PATH=${PREFIX}\
+cmake -DDEAL_II_DIR=${PREFIX} \
+      -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DPython3_EXECUTABLE="$PYTHON" \
+      -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DBOOST_DIR="${PREFIX}" \
+      -DTBB_DIR="${PREFIX}" \
+      -DMUPARSER_DIR="${PREFIX}" \
   .. || (show_cmake_logs && exit 1)
 
 make VERBOSE=1
