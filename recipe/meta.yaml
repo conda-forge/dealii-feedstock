@@ -41,7 +41,6 @@ test:
   imports:
     - PyDealII
   requires:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - {{ stdlib("c") }}

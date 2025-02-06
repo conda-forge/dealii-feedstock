@@ -71,6 +71,7 @@ CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 mkdir build && cd build
 cmake -DDEAL_II_DIR=${PREFIX} \
       -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DCMAKE_BUILD_TYPE=Release \
       -DPython3_EXECUTABLE="$PYTHON" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DBOOST_DIR="${PREFIX}" \
