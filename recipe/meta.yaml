@@ -31,6 +31,11 @@ requirements:
     - python {{ python }}
     - libboost-devel
     - libboost-python-devel
+  run:
+    - zlib
+    - tbb
+    - {{ pin_compatible("muparser") }}
+    - python {{ python }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
@@ -38,11 +43,6 @@ requirements:
     - cmake
     - make
     - tbb-devel
-  run:
-    - zlib
-    - tbb
-    - {{ pin_compatible("muparser") }}
-    - python {{ python }}
 
 test:
   imports:
