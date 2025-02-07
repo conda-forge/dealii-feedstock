@@ -74,6 +74,7 @@ cmake -DDEAL_II_DIR=${PREFIX} \
       -DCMAKE_BUILD_TYPE=Release \
       -DPython3_EXECUTABLE="$PYTHON" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DCMAKE_CXX_COMPILER=${CXX} \
       -DBOOST_DIR="${PREFIX}" \
       -DTBB_DIR="${PREFIX}" \
       -DMUPARSER_DIR="${PREFIX}" \
