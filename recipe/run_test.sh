@@ -56,13 +56,11 @@ CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-stdlib=libc++//g")
 CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
 mkdir build && cd build
-cmake -DDEAL_II_DIR=${PREFIX} \
-      -DCMAKE_PREFIX_PATH=${PREFIX} \
+cmake -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DCMAKE_BUILD_TYPE=Release \
-      -DPython3_EXECUTABLE="$PYTHON" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DCMAKE_CXX_COMPILER=${CXX} \
-      -DEAL_II_WITH_LAPACK=ON \
+      -DDEAL_II_WITH_LAPACK=ON \
       -DBOOST_DIR="${PREFIX}" \
       -DTBB_DIR="${PREFIX}" \
       -DMUPARSER_DIR="${PREFIX}" \
