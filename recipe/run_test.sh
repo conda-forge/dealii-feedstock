@@ -2,7 +2,7 @@
 
 # {{{ test.cc
 
-cat <<'EOF'>test.cc
+cat <<'EOF'>test.cpp
 #include <deal.II/grid/tria.h>
 #include <deal.II/grid/tria_accessor.h>
 #include <deal.II/grid/tria_iterator.h>
@@ -30,26 +30,13 @@ EOF
 # }}}
 
 # {{{ CMakeLists.txt
-
 cat <<'EOF'>CMakeLists.txt
-SET(TARGET "test")
-SET(TARGET_SRC test.cc)
-
-CMAKE_MINIMUM_REQUIRED(VERSION 3.15.0)
-FIND_PACKAGE(deal.II 9.0.0 QUIET
-  HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR}
-  )
-IF(NOT ${deal.II_FOUND})
-  MESSAGE(FATAL_ERROR "\n"
-    "*** Could not locate a (sufficiently recent) version of deal.II. ***\n\n"
-    "You may want to either pass a flag -DDEAL_II_DIR=/path/to/deal.II to cmake\n"
-    "or set an environment variable \"DEAL_II_DIR\" that contains this path."
-    )
-ENDIF()
-
-DEAL_II_INITIALIZE_CACHED_VARIABLES()
-PROJECT(${TARGET})
-DEAL_II_INVOKE_AUTOPILOT()
+cmake_minimum_required(VERSION 3.20)
+project(DealIISimpleExample LANGUAGES CXX)
+find_package(deal.II 9.0.0 QUIET HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR} CONFIG REQUIRED)
+deal_ii_initialize_cached_variables()
+add_executable(test test.cpp)
+deal_ii_setup_target(test)
 EOF
 
 # }}}
@@ -75,6 +62,7 @@ cmake -DDEAL_II_DIR=${PREFIX} \
       -DPython3_EXECUTABLE="$PYTHON" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DCMAKE_CXX_COMPILER=${CXX} \
+      -DEAL_II_WITH_LAPACK=ON \
       -DBOOST_DIR="${PREFIX}" \
       -DTBB_DIR="${PREFIX}" \
       -DMUPARSER_DIR="${PREFIX}" \
