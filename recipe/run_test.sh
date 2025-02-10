@@ -33,7 +33,7 @@ EOF
 cat <<'EOF'>CMakeLists.txt
 cmake_minimum_required(VERSION 3.20)
 project(DealIISimpleExample LANGUAGES CXX)
-find_package(deal.II QUIET HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR} CONFIG REQUIRED)
+find_package(deal.II HINTS ${DEAL_II_DIR} CONFIG REQUIRED)
 deal_ii_initialize_cached_variables()
 add_executable(test test.cpp)
 deal_ii_setup_target(test)
@@ -57,10 +57,10 @@ CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
 mkdir build && cd build
 echo "Environment located at: " $PREFIX
+export DEAL_II_DIR=$PREFIX
 cmake -DCMAKE_PREFIX_PATH="${PREFIX}" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
-      -DDEALII_ROOT="${PREFIX}" \
       -DDEAL.II_ROOT="${PREFIX}" \
       -DCMAKE_CXX_COMPILER=${CXX} \
   .. || (show_cmake_logs && exit 1)
