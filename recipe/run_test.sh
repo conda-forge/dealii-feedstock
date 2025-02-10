@@ -56,10 +56,12 @@ CXXFLAGS=$(echo "${CXXFLAGS}" | sed "s/-stdlib=libc++//g")
 CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
 mkdir build && cd build
-echo "Environment located at: ${PREFIX}"
+echo "Environment located at: " $PREFIX
 cmake -DCMAKE_PREFIX_PATH="${PREFIX}" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DDEALII_ROOT="${PREFIX}" \
+      -DDEAL.II_ROOT="${PREFIX}" \
       -DCMAKE_CXX_COMPILER=${CXX} \
   .. || (show_cmake_logs && exit 1)
 
